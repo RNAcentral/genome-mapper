@@ -14,17 +14,12 @@
 # limitations under the License.
 
 
-########################################################
-## Setup working environment for the Ensembl Perl API ##
-########################################################
+##################################
+## Sensitive connection details ##
+##################################
 
-# get the directory of this script
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
-# set the environment for Ensembl
-PERL5LIB=${PERL5LIB}:${DIR}/bioperl-live
-PERL5LIB=${PERL5LIB}:${DIR}/ensembl/modules
-export PERL5LIB
-
-# load environment variables with sensitive data
-source ${DIR}/scripts/params.sh
+export ORACLE_USER=""
+export ORACLE_PASSWORD=""
+export ORACLE_SID=""
+export ORACLE_PORT=""
+export ORACLE_HOST=""
