@@ -30,6 +30,10 @@ git submodule update
 
 # optional: checkout the desired Ensembl branch
 
+# optional: check that Ensembl connection is working
+source setup.sh
+perl ensembl/misc-scripts/ping_ensembl.pl
+
 # make a copy of the params script and add the connection details
 cp scripts/params_template.sh scripts/params.sh
 ```
