@@ -1,0 +1,3 @@
+[submodule "bioperl-live"]
+	path = bioperl-live
+	url = https://github.com/bioperl/bioperl-live.git
