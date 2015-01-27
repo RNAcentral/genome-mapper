@@ -120,7 +120,7 @@ my $not_found = 0;
 # prepare an SQL statement for saving the mappings
 $cmd = <<SQL;
     UPDATE rnc_coordinates
-    SET primary_start = ?, primary_end = ?, name = ?
+    SET primary_start = ?, primary_end = ?, name = ?, strand = ?
     WHERE
         accession = ? AND
         Local_start = ? AND
@@ -161,7 +161,7 @@ while (my $data = $query_sql->fetchrow_hashref()) {
 
     if ($seq_region_name) {
         $found++;
-        $update_sql->execute($start, $end, $seq_region_name,
+        $update_sql->execute($start, $end, $seq_region_name, $strand,
                              $data->{'ACCESSION'}, $data->{'LOCAL_START'},
                              $data->{'LOCAL_END'}) or warn('Error!');
     } else {
