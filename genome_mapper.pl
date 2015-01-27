@@ -136,13 +136,13 @@ while (my $data = $query_sql->fetchrow_hashref()) {
 
     my ($seq_region_name, $start, $end, $seq, $strand);
 
-    # temporary limit
-    if ($i > 10) {
-        $query_sql->finish();
-        last;
-    } else {
-        $i++;
-    }
+    # # temporary limit
+    # if ($i > 10) {
+    #     $query_sql->finish();
+    #     last;
+    # } else {
+    #     $i++;
+    # }
 
     $seq = $data->{'SEQ_SHORT'} || $data->{'SEQ_LONG'};
 
