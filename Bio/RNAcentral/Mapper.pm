@@ -110,6 +110,11 @@ sub get_toplevel_mapping {
 
     }
 
+    # discard results if the strand couldn't be determined
+    if (defined($strand) && $strand == 0) {
+        $seq_region_name = $start = $end = $strand = undef;
+    }
+
     return ($seq_region_name, $start, $end, $strand);
 }
 
@@ -136,7 +141,10 @@ sub get_strand() {
     my $rev = $sequence;
     reverse_comp(\$rev);
 
-    if (index($sequence,$slice->seq) != -1) {
+    if (index($sequence,$slice->seq) != -1 && index($rev,$slice->seq) != -1) {
+        # sequence found on both strands
+        $strand = 0;
+    } elsif (index($sequence,$slice->seq) != -1) {
         $strand = $slice->strand();
     } elsif (index($rev,$slice->seq) != -1) {
         $strand = - $slice->strand(); # reverse complement matched the sequence, so reverse the strand of the feature
