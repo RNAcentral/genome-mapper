@@ -78,7 +78,6 @@ sub get_toplevel_mapping {
             $end = $toplevel->end();
             $seq_region_name = $toplevel->seq_region_name();
             $strand = get_strand($sequence, $toplevel);
-            print "Toplevel: $seq_region_name:$start-$end:$strand\n";
         } else {
             # if transform didn't work, try using project
             # this can return slices on different coordinate systems
@@ -91,13 +90,6 @@ sub get_toplevel_mapping {
                 $end = $to_slice->end();
                 $seq_region_name = $to_slice->seq_region_name();
                 $strand = get_strand($sequence, $to_slice);
-
-                printf(
-                    "\t%s %d-%d (%+d) %s\n",
-                    $to_slice->seq_region_name(), $to_slice->start(),
-                    $to_slice->end(),             $strand,
-                    $slice->coord_system()->name()
-                );
 
                 if ($local_end - $local_start + 1 != $to_slice->length) {
                     print "Incorrect length\n";
