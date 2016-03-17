@@ -146,12 +146,6 @@ while (my $data = $query_sql->fetchrow_hashref()) {
 
     $seq = $data->{'SEQ_SHORT'} || $data->{'SEQ_LONG'};
 
-    printf(
-        "%s %i %i %i\n",
-        $data->{'PRIMARY_ACCESSION'}, $data->{'LOCAL_START'},
-        $data->{'LOCAL_END'}, $data->{'STRAND'}
-    );
-
     ($seq_region_name, $start, $end, $strand) = get_toplevel_mapping(
          \$slice_adaptor,
          $data->{'PRIMARY_ACCESSION'},
