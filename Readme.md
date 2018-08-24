@@ -1,5 +1,7 @@
 # RNAcentral Genome Mapper
 
+**This repository is archived and its functionality has been replaced by the new blat-based [genome mapping pipeline](http://rnacentral.org/help/genomic-mapping).**
+
 ## About
 
 This repository contains the code that is used internally for
